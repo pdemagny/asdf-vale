@@ -7,7 +7,7 @@ TOOL_NAME="vale"
 TOOL_TEST="vale --version"
 
 fail() {
-	echo -e "asdf-$TOOL_NAME: $*"
+	echo -e "asdf-$TOOL_NAME: $*" > /dev/stderr
 	exit 1
 }
 
@@ -26,6 +26,7 @@ get_arch() {
 	case $arch in
 	x86_64) arch="64-bit" ;;
 	arm64) arch="arm64" ;;
+ 	aarch64) arch="arm64" ;;
 	*) fail "The architecture (${arch}) is not supported by this installation script." ;;
 	esac
 	echo "$arch"
